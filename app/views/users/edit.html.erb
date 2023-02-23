@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2 class="col-10">User info</h2>
+    <div class="col-10">
+    <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+
+      <label>Name</label>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <label>Introduction</label>
+      <%= f.text_area :introduction, class: "form-control" %>
+
+      <%= f.submit "Update User", class: "btn btn-secondary" %>
+    <% end%>
+    </div>
+  </div>
+</div>
