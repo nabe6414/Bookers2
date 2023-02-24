@@ -13,5 +13,10 @@
       <%= f.submit "Update Book", class: "btn btn-success"%>
     <% end%>
     </div>
+    <div class="col-10">
+      <%= link_to "Show", book_path(@book.id) %>
+      |
+      <%= link_to "Back", books_path %>
+    </div>
   </div>
 </div>
