@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-    <%= render 'shared/userinfo', user: @user %>
+    <%= render 'shared/userinfo', user: @user_info %>
     <%= render 'shared/newpost', book: @post %>
     </div>
 
@@ -18,7 +18,7 @@
         <tbody>
           <% @books.each do |book| %>
           <tr>
-            <td></td>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
             <td>
               <%= link_to book_path(book.id) do %>
               <%= book.title %>
