@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_info = User.find(current_user.id)
+    @user_info = User.find(params[:id])
     @post = Book.new
     @books = @user.books
   end
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
+    flash[:update_user] = "You have updated user successfully."
     redirect_to user_path(user.id)
   end
 
