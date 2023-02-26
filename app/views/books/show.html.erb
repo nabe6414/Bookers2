@@ -2,25 +2,29 @@
   <%= flash[:success_book] %>
   <%= flash[:update_book] %>
 </p>
-<div class="container">
+<div class="container mt-3">
   <div class="row">
-    <div class="col-3">
+    <div class="col-lg-3 col-sm-12">
     <%= render 'shared/userinfo', user: @user_info %>
     <%= render 'shared/newpost', book: @post %>
     </div>
 
-    <div class="col-9">
+    <div class="col-lg-8 col-sm-12">
       <h2>Book detail</h2>
       <table class="table">
         <tbody>
           <tr>
             <td>
-              <%= image_tag @book.user.get_profile_image(100,100) %><br>
               <%= link_to user_path(@book.user) do %>
+              <%= image_tag @book.user.get_profile_image(100,100) %><br>
               <%= @book.user.name %>
               <% end %>
             </td>
-            <td><%= @book.title %></td>
+            <td>
+              <%= link_to book_path(@book.id) do %>
+              <%= @book.title %>
+              <% end %>
+            </td>
             <td><%= @book.body %></td>
             <% if @book.user == current_user %>
             <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %></td>
