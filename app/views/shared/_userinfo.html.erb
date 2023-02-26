@@ -13,12 +13,6 @@
   </thead>
 </table>
 
-<% if user == current_user %>
-  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block mb-3" do %>
-  <i class="fas fa-user-cog"></i>
-  <% end %>
-<% else %>
-  <%= link_to user_path(current_user.id), class: "btn btn-outline-secondary btn-block mb-3" do %>
-  <i class="fas fa-user-cog"></i>
-  <% end %>
+<%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block mb-3" do %>
+<i class="fas fa-user-cog"></i>
 <% end %>
